@@ -64,3 +64,6 @@ TermSocket.open: Opened 2
 [W 14:02:11.516 NotebookApp] No such file or directory: gitignore
 [W 14:02:11.516 NotebookApp] 404 GET /user/chelseamariepet--conda_binder_2-5ig9xxzf/api/contents/gitignore?content=0&_=1626357576985 (128.146.189.70) 2.400000ms referer=https://hub.gke2.mybinder.org/user/chelseamariepet--conda_binder_2-5ig9xxzf/edit/gitignore
 [I 14:02:11.547 NotebookApp] Uploading file to /gitignore
+/usr/lib/rstudio-server/bin/rsession: Relink `/srv/conda/envs/notebook/lib/R/lib/../.././libgfortran.so.4' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
+[I 14:06:26.181 NotebookApp] Trying to establish websocket connection to ws://localhost:56949/p/178c7e4e/websocket/
+[I 14:06:26.194 NotebookApp] Websocket connection established to ws://localhost:56949/p/178c7e4e/websocket/
