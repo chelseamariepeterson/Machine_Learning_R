@@ -60,3 +60,7 @@ TermSocket.open: 2
 TermSocket.open: Opened 2
 [I 13:57:45.907 NotebookApp] Saving file at /gitignore
 [I 14:00:41.248 NotebookApp] Saving file at /gitignore
+[W 14:02:11.515 NotebookApp] 404 GET /user/chelseamariepet--conda_binder_2-5ig9xxzf/api/contents/gitignore?content=0&_=1626357576985 (128.146.189.70): No such file or directory: gitignore
+[W 14:02:11.516 NotebookApp] No such file or directory: gitignore
+[W 14:02:11.516 NotebookApp] 404 GET /user/chelseamariepet--conda_binder_2-5ig9xxzf/api/contents/gitignore?content=0&_=1626357576985 (128.146.189.70) 2.400000ms referer=https://hub.gke2.mybinder.org/user/chelseamariepet--conda_binder_2-5ig9xxzf/edit/gitignore
+[I 14:02:11.547 NotebookApp] Uploading file to /gitignore
