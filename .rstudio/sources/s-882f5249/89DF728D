@@ -7,14 +7,14 @@
     "folds" : "",
     "hash" : "0",
     "id" : "89DF728D",
-    "lastKnownWriteTime" : 1626357956,
-    "last_content_update" : 1626357956,
-    "path" : "~/Example1/app.R",
+    "lastKnownWriteTime" : 1626365905,
+    "last_content_update" : 1626365905683,
+    "path" : "~/Example1/app1.R",
     "project_path" : null,
     "properties" : {
-        "cursorPosition" : "15,43",
+        "cursorPosition" : "112,6",
         "docOutlineVisible" : "0",
-        "scrollLine" : "0"
+        "scrollLine" : "99"
     },
     "read_only" : false,
     "read_only_alternatives" : [

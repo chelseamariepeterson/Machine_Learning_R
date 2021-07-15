@@ -67,3 +67,69 @@ TermSocket.open: Opened 2
 /usr/lib/rstudio-server/bin/rsession: Relink `/srv/conda/envs/notebook/lib/R/lib/../.././libgfortran.so.4' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
 [I 14:06:26.181 NotebookApp] Trying to establish websocket connection to ws://localhost:56949/p/178c7e4e/websocket/
 [I 14:06:26.194 NotebookApp] Websocket connection established to ws://localhost:56949/p/178c7e4e/websocket/
+[W 2021-07-15 15:36:03.294 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'base_url' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'trust_xheaders' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'allow_origin' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'allow_origin_pat' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'extra_template_paths' was found in both NotebookApp and ServerApp. This is likely a recent change. This config will only be set in NotebookApp. Please check if you should also config these traits in ServerApp for your purpose.
+[W 2021-07-15 15:36:03.294 LabApp] 'jinja_template_vars' was found in both NotebookApp and ServerApp. This is likely a recent change. This config will only be set in NotebookApp. Please check if you should also config these traits in ServerApp for your purpose.
+[W 2021-07-15 15:36:03.294 LabApp] 'shutdown_no_activity_timeout' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.294 LabApp] 'tornado_settings' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2021-07-15 15:36:03.295 LabApp] 'tornado_settings' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2021-07-15 15:36:03.304 LabApp] JupyterLab extension loaded from /srv/conda/envs/notebook/lib/python3.8/site-packages/jupyterlab
+[I 2021-07-15 15:36:03.304 LabApp] JupyterLab application directory is /srv/conda/envs/notebook/share/jupyter/lab
+[I 15:36:03.319 NotebookApp] nteract extension loaded from /srv/conda/envs/notebook/lib/python3.8/site-packages/nteract_on_jupyter
+[I 15:36:03.321 NotebookApp] Will shut down after 600 seconds with no kernels or terminals.
+[I 15:36:03.322 NotebookApp] Serving notebooks from local directory: /home/jovyan
+[I 15:36:03.322 NotebookApp] Jupyter Notebook 6.2.0 is running at:
+[I 15:36:03.322 NotebookApp] http://jupyter-chelseamariepet-2d-2dconda-5fbinder-5f2-2dlvgyo7j4:8888/user/chelseamariepet--conda_binder_2-lvgyo7j4/?token=...
+[I 15:36:03.322 NotebookApp]  or http://127.0.0.1:8888/user/chelseamariepet--conda_binder_2-lvgyo7j4/?token=...
+[I 15:36:03.322 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 15:36:03.355 NotebookApp] No web browser found: could not locate runnable browser.
+[I 15:36:03.359 NotebookApp] 302 GET /user/chelseamariepet--conda_binder_2-lvgyo7j4/ (10.0.0.17) 2.070000ms
+[I 15:36:08.926 NotebookApp] 302 GET /user/chelseamariepet--conda_binder_2-lvgyo7j4/?token=DLwOVJ84RXqCPfEoU4rRBQ (128.146.189.70) 0.890000ms
+/usr/lib/rstudio-server/bin/rsession: Relink `/srv/conda/envs/notebook/lib/R/lib/../.././libgfortran.so.4' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
+[I 15:36:45.696 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:36:45.700 NotebookApp] Websocket connection established to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:38:02.319 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:38:02.323 NotebookApp] Websocket connection established to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:38:36.634 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:38:36.637 NotebookApp] Websocket connection established to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:40:20.557 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:40:20.561 NotebookApp] Websocket connection established to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:42:45.994 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:42:45.998 NotebookApp] Websocket connection established to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:45:09.192 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 15:45:09.205 NotebookApp] Websocket connection established to ws://localhost:34661/p/cbc69e8e/websocket/
+[I 16:01:29.724 NotebookApp] New terminal with automatic name: 1
+TermSocket.open: 1
+TermSocket.open: Opened 1
+Websocket closed
+[I 16:08:56.964 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:08:56.968 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:10:03.306 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:10:03.317 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:11:02.900 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:11:02.904 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:11:22.777 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:11:22.780 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:12:56.181 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:12:56.185 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:15:53.066 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:15:53.070 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:16:49.830 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:16:49.833 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:17:24.724 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:17:24.728 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:17:56.186 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:17:56.190 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:18:28.812 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:18:28.816 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:19:42.000 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:19:42.005 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:20:49.578 NotebookApp] New terminal with automatic name: 2
+TermSocket.open: 2
+TermSocket.open: Opened 2
