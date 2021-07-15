@@ -1,3 +1,11 @@
+.
+..
+.cache
+.config
+.empty
+.git
+.gitconfig
+.local
 .conda
 .config/configstore
 .local/share/jupyter/runtime
