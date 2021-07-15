@@ -1,3 +1,10 @@
+.conda
+.config/configstore
+.local/share/jupyter/runtime
+.bash_logout
+.bashrc
+.jupyter-server-log.txt
+.profile
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

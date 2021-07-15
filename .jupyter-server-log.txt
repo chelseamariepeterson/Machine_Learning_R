@@ -58,3 +58,4 @@ Websocket closed
 [I 13:54:22.262 NotebookApp] New terminal with automatic name: 2
 TermSocket.open: 2
 TermSocket.open: Opened 2
+[I 13:57:45.907 NotebookApp] Saving file at /gitignore
