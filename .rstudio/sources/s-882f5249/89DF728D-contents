@@ -58,23 +58,21 @@ ui <- fluidPage(
         mainPanel(
             plotOutput("distPlot"),
             plotOutput("distLine"),
-            tableOutput("contents"),
+            # tableOutput("contents"),
             textOutput("equation")
         )
     )
 )
 
 # Define server logic required to draw a histogram
-    server <- function(input, output){
-    
+server <- function(input, output) {
     dataInput <- reactive({
         req(input$file1)
-        
         df <- read.csv(input$file1$datapath,
                        header = input$header,
                        sep = input$sep,
                        quote = input$quote)
-        return(dataInput())
+        return(df)
     })}
 
     #Render CSV Data Table
@@ -98,7 +96,7 @@ ui <- fluidPage(
         abline(line())
     })
     
-    output$equation <- renderText({
+    output$equation <- renderPrint({
         print(summary(line()))
     })
 
