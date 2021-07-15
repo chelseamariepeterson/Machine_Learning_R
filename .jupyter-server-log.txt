@@ -133,3 +133,9 @@ Websocket closed
 [I 16:20:49.578 NotebookApp] New terminal with automatic name: 2
 TermSocket.open: 2
 TermSocket.open: Opened 2
+[I 16:44:44.241 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:44:44.245 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:48:22.911 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:48:22.915 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:50:35.861 NotebookApp] Trying to establish websocket connection to ws://localhost:34661/p/84438e5f/websocket/
+[I 16:50:35.866 NotebookApp] Websocket connection established to ws://localhost:34661/p/84438e5f/websocket/

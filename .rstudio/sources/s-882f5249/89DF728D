@@ -5,16 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2065488817",
     "id" : "89DF728D",
-    "lastKnownWriteTime" : 1626365905,
-    "last_content_update" : 1626365905683,
+    "lastKnownWriteTime" : 1626368529,
+    "last_content_update" : 1626368529556,
     "path" : "~/Example1/app1.R",
     "project_path" : null,
     "properties" : {
-        "cursorPosition" : "112,6",
+        "cursorPosition" : "101,16",
         "docOutlineVisible" : "0",
-        "scrollLine" : "99"
+        "scrollLine" : "87"
     },
     "read_only" : false,
     "read_only_alternatives" : [

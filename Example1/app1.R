@@ -58,14 +58,14 @@ ui <- fluidPage(
         mainPanel(
             plotOutput("distPlot"),
             plotOutput("distLine"),
-            plotOutput("contents"),
-            tableOutput("equation")
+            tableOutput("contents"),
+            textOutput("equation")
         )
     )
 )
 
 # Define server logic required to draw a histogram
-server <- function(input, output) {
+    server <- function(input, output){
     
     dataInput <- reactive({
         req(input$file1)
@@ -74,45 +74,34 @@ server <- function(input, output) {
                        header = input$header,
                        sep = input$sep,
                        quote = input$quote)
-        return(df)
-    })
-    
-    # output$distPlot <- renderPlot({
-    #     # generate bins based on input$bins from ui.R
-    #     x    <- faithful[, 2]
-    #     bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    #     print(bins)
-    #     # draw the histogram with the specified number of bins
-    #     hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    # })
-    # 
-    
-    output$distPlot <- renderPlot({
-        plot(dataInput()$x,dataInput()$y)
-    })
-    
-    output$lmtPlot <- renderPlot({
-        plot(dataInput()$x,dataInput()$y)
-    })
-    
-    
+        return(dataInput())
+    })}
+
+    #Render CSV Data Table
     output$contents <- renderTable({
-        
-        # input$file1 will be NULL initially. After the user selects
-        # and uploads a file, head of that data file by default,
-        # or all rows if selected, will be shown.
-        
-        
         if(input$disp == "head") {
             return(head(dataInput()))
         }
         else {
-            return(df())
+            return(df)
         }
         
     })
     
-}
+    #Render Graph
+    output$distPlot <- renderPlot({
+        plot(dataInput()$x, dataInput()$y)
+    })
 
+    output$distLine <- renderPlot({
+        plot(dataInput()$x, dataInput()$y)
+        abline(line())
+    })
+    
+    output$equation <- renderText({
+        print(summary(line()))
+    })
+
+    
 # Run the application 
 shinyApp(ui = ui, server = server)
