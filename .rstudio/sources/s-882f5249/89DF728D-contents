@@ -4,26 +4,29 @@
 #
 # Find out more about building applications with Shiny here:
 #
-#    http://shiny.rstudio.com/
+#    http://shiny.rstudio.com/
 #
 
 library(shiny)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-
+    
     # Application title
-    titlePanel("Scatter and Linear Model Plots - 7030"),
-
+    titlePanel("Scatter and Linear Plots - 7030"),
+    
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
+            
+            
             # Input: Select a file ----
             fileInput("file1", "Choose CSV File",
                       multiple = FALSE,
                       accept = c("text/csv",
                                  "text/comma-separated-values,text/plain",
                                  ".csv")),
+            
             # Horizontal line ----
             tags$hr(),
             
@@ -51,55 +54,84 @@ ui <- fluidPage(
             radioButtons("disp", "Display",
                          choices = c(Head = "head",
                                      All = "all"),
-                         selected = "head")
+                         selected = "head"),
+            
+            
+            actionButton("lmPlot", "GO GO Linear Model"),
+            tags$hr(), # Horizontal line
+            
         ),
         
         # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot"),
-            plotOutput("distLine"),
-            # tableOutput("contents"),
-            textOutput("equation")
+            plotOutput("lmPlot"),
+            tableOutput("contents"),
+            textOutput("summary"),
         )
     )
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+    
     dataInput <- reactive({
         req(input$file1)
+        
         df <- read.csv(input$file1$datapath,
                        header = input$header,
                        sep = input$sep,
                        quote = input$quote)
         return(df)
-    })}
-
-    #Render CSV Data Table
+    })
+    
+    LinearModel <- eventReactive(input$lmPlot, {
+        y <- dataInput()$y
+        x <- dataInput()$x
+        lmPlot <- lm(y ~ x)
+        
+    })
+    
+    output$distPlot <- renderPlot({
+        plot(dataInput()$x,dataInput()$y)
+    })
+    
+    output$lmPlot <- renderPlot({
+        # y <- dataInput()$y
+        # x <- dataInput()$x
+        # lmPlot <- lm(y ~ x)
+        plot(dataInput()$x,dataInput()$y)
+        abline(LinearModel())
+    })
+    
+    output$summary <- renderPrint({
+        y <- dataInput()$y
+        x <- dataInput()$x
+        lmPlot <- lm(y ~ x)
+        #attributes(summary(lmPlot))
+        summary(lmPlot)$slope
+        summary(lmPlot)$coefficients
+        summary(lmPlot)$r.squared
+    })
+    
+    
     output$contents <- renderTable({
+        
+        # input$file1 will be NULL initially. After the user selects
+        # and uploads a file, head of that data file by default,
+        # or all rows if selected, will be shown.
+        
+        
         if(input$disp == "head") {
             return(head(dataInput()))
         }
         else {
-            return(df)
+            return(dataInput())
         }
         
     })
     
-    #Render Graph
-    output$distPlot <- renderPlot({
-        plot(dataInput()$x, dataInput()$y)
-    })
+}
 
-    output$distLine <- renderPlot({
-        plot(dataInput()$x, dataInput()$y)
-        abline(line())
-    })
-    
-    output$equation <- renderPrint({
-        print(summary(line()))
-    })
-
-    
 # Run the application 
 shinyApp(ui = ui, server = server)
