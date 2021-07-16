@@ -171,3 +171,50 @@ TermSocket.open: Opened 2
 [I 23:21:02.224 NotebookApp] New terminal with automatic name: 1
 TermSocket.open: 1
 TermSocket.open: Opened 1
+[I 23:27:57.181 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 23:27:57.184 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:27:28.871 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:27:28.874 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:27:58.854 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:27:58.858 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:28:22.364 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:28:22.367 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:29:15.547 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:29:15.550 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:33:26.255 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:33:26.297 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:33:40.569 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:33:40.572 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[W 00:35:30.114 NotebookApp] 404 GET /user/chelseamariepet--conda_binder_2-zc56d2ey/rstudio/figures/logo.png (75.118.94.132) 2.590000ms referer=https://hub.gke2.mybinder.org/user/chelseamariepet--conda_binder_2-zc56d2ey/rstudio/
+[I 00:35:36.989 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:35:36.991 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:36:06.931 NotebookApp] Saving file at /binder/environment.yml
+[I 00:36:16.224 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:36:16.227 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[E 00:37:21.424 NotebookApp] {
+      "Cookie": "port-token=879e1001629b; username-hub-gke2-mybinder-org=\"2|1:0|10:1626390202|30:username-hub-gke2-mybinder-org|44:M2I3MjIzN2M4MjU0NGFiMThmMTA0ZWM5ZDM4NTIxMjU=|3aebcfcd25aaf1d1a22b3e5b3f07cde697df1d5d1b70031c507bff3e94fbf925\"; csrf-token=bae7ffdb-4bff-461c-ba6c-58a2cf6a63c6; _xsrf=2|e7310962|5f5f27e07d1880b8b3235d33b66e1f9a|1624551708",
+      "Referer": "https://hub.gke2.mybinder.org/user/chelseamariepet--conda_binder_2-zc56d2ey/rstudio/",
+      "Accept-Language": "en-us",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15",
+      "If-None-Match": "W/\"1963cf40087cc52e81dd22cd2358a038d3ceac82\"",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "X-Scheme": "https",
+      "X-Forwarded-Port": "443,80",
+      "X-Forwarded-Host": "hub.gke2.mybinder.org",
+      "X-Forwarded-Proto": "https,http",
+      "X-Forwarded-For": "75.118.94.132,::ffff:10.0.1.8",
+      "X-Real-Ip": "75.118.94.132",
+      "X-Request-Id": "64b9ab1630dd95d2f9ba0a5b3499f56e",
+      "Host": "hub.gke2.mybinder.org",
+      "Connection": "close"
+    }
+[E 00:37:21.424 NotebookApp] 500 GET /user/chelseamariepet--conda_binder_2-zc56d2ey/rstudio/p/4c3707e5/ (75.118.94.132) 34.090000ms referer=https://hub.gke2.mybinder.org/user/chelseamariepet--conda_binder_2-zc56d2ey/rstudio/
+[I 00:37:32.400 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:37:32.403 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:48:33.734 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:48:33.737 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:52:40.843 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:52:40.846 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:59:08.505 NotebookApp] Trying to establish websocket connection to ws://localhost:56583/p/4c3707e5/websocket/
+[I 00:59:08.509 NotebookApp] Websocket connection established to ws://localhost:56583/p/4c3707e5/websocket/
