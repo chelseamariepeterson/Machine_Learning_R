@@ -59,6 +59,10 @@ ui <- fluidPage(
             
             
             actionButton("lmPlot", "GO GO Linear Model"),
+            
+            # Horizontal line ----
+            tags$hr(),
+            
             htmlOutput("RSquared"),
             htmlOutput("Slope"),
             htmlOutput("Intercept"),
@@ -138,7 +142,7 @@ server <- function(input, output) {
     })
     
     output$plotlyLinearModel <- renderPlotly({plot <- plot_ly(dataInput(), x = ~x, y = ~y, type = 'scatter', mode = 'markers')%>%
-        layout(title="LinearModel")%>% 
+        layout(title="Linear Model")%>% 
     add_trace(dataInput(), x = ~x, y = fitted(LinearModel()), mode = "lines", showlegend = F)})
     
     output$summary <- renderPrint({
