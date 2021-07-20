@@ -59,6 +59,9 @@ ui <- fluidPage(
             
             
             actionButton("lmPlot", "GO GO Linear Model"),
+            htmlOutput("RSquared"),
+            htmlOutput("Slope"),
+            htmlOutput("Intercept"),
             tags$hr(), # Horizontal line
             
         ),
@@ -70,7 +73,10 @@ ui <- fluidPage(
             tableOutput("contents"),
             textOutput("summary"),
             plotlyOutput("plotlyScatterPlot"),
-            plotlyOutput("plotlyLinearModel")
+            plotlyOutput("plotlyLinearModel"),
+            # htmlOutput("RSquared"),
+            # htmlOutput("Slope"),
+            # htmlOutput("Intercept")
         )
     )
 )
@@ -107,6 +113,25 @@ server <- function(input, output) {
         abline(LinearModel())
     })
     
+    output$RSquared <- renderUI({
+        str1 <- paste("R", tags$sup(2),":", sep = "")
+        str2 <- paste(format(round(summary(LinearModel())$r.squared, 3)))
+        HTML(paste(str1, str2))
+    })
+    
+    output$Slope <- renderUI({
+        str1 <- paste("Slope:")
+        str2 <- paste(format(round(summary(LinearModel())$coefficients[2], 3)))
+        HTML(paste(str1, str2))
+    })
+    
+    output$Intercept <- renderUI({
+        str1 <- paste("Intercept:")
+        str2 <- paste(format(round(summary(LinearModel())$coefficients[1], 3)))
+        HTML(paste(str1, str2))
+    })
+    
+    
     output$plotlyScatterPlot <- renderPlotly({
         plot <- plot_ly(dataInput(), x = ~x, y = ~y, type = 'scatter', mode = 'markers')%>%
             layout(title="Scatter Plot")
@@ -121,15 +146,15 @@ server <- function(input, output) {
         x <- dataInput()$x
         lmPlot <- lm(y ~ x)
         #attributes(summary(lmPlot))
-        summary(lmPlot)$slope
-        summary(lmPlot)$coefficients
-        summary(lmPlot)$r.squared
+        # summary(lmPlot)$slope
+        # summary(lmPlot)$coefficients
+        # summary(lmPlot)$r.squared
         
-        
-        
-        paste("R2 = ",signif(summary(lmPlot)$adj.r.squared, 5),
-              "Intercept =",signif(lmPlot$coef[[1]],5 ),
-              " Slope =",signif(lmPlot$coef[[2]], 5))
+        # 
+        # 
+        # paste("R2 = ",signif(summary(lmPlot)$adj.r.squared, 5),
+        #       "Intercept =",signif(lmPlot$coef[[1]],5 ),
+        #       " Slope =",signif(lmPlot$coef[[2]], 5))
         
     })
     
