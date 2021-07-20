@@ -1,0 +1,22 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+]0;/home/jovyan/Example1]0;jovyan@jupyter-chelseamariepet-2d-2dconda-5fbinder-5f2-2dpn7w20y6: ~/Example1[01;32mjovyan@jupyter-chelseamariepet-2d-2dconda-5fbinder-5f2-2dpn7w20y6[00m:[01;34m~/Example1[00m$ install.packages)[K("plotly ")
+bash: syntax error near unexpected token `"plotly"'
+]0;/home/jovyan/Example1]0;jovyan@jupyter-chelseamariepet-2d-2dconda-5fbinder-5f2-2dpn7w20y6: ~/Example1[01;32mjovyan@jupyter-chelseamariepet-2d-2dconda-5fbinder-5f2-2dpn7w20y6[00m:[01;34m~/Example1[00m$ 
