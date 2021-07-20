@@ -36,3 +36,4 @@
 1626797749347:runApp('Example1/app1.R')
 1626798164711:runApp('Example1/app1.R')
 1626798314197:runApp('Example1/app1.R')
+1626799981812:library(shiny); runApp('Example1/app1.R')

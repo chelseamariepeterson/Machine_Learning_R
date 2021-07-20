@@ -4,26 +4,30 @@
 #
 # Find out more about building applications with Shiny here:
 #
-#    http://shiny.rstudio.com/
+#    http://shiny.rstudio.com/
 #
 
 library(shiny)
-
+library(ggplot2)
+library (plotly)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-
+    
     # Application title
-    titlePanel("Scatter and Linear Model Plots - 7030"),
-
+    titlePanel("Linear Modeling Data"),
+    
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
+            
+            
             # Input: Select a file ----
             fileInput("file1", "Choose CSV File",
                       multiple = FALSE,
                       accept = c("text/csv",
                                  "text/comma-separated-values,text/plain",
                                  ".csv")),
+            
             # Horizontal line ----
             tags$hr(),
             
@@ -51,23 +55,39 @@ ui <- fluidPage(
             radioButtons("disp", "Display",
                          choices = c(Head = "head",
                                      All = "all"),
-                         selected = "head")
+                         selected = "head"),
+            
+            
+            actionButton("lmPlot", "GO GO Linear Model"),
+            
+            # Horizontal line ----
+            tags$hr(),
+            
+            htmlOutput("RSquared"),
+            htmlOutput("Slope"),
+            htmlOutput("Intercept"),
+            tags$hr(), # Horizontal line
+            
         ),
         
         # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot"),
-            plotOutput("distLine"),
-            plotOutput("contents"),
             plotOutput("lmPlot"),
-            plotOutput("equation")
-            
+            tableOutput("contents"),
+            textOutput("summary"),
+            plotlyOutput("plotlyScatterPlot"),
+            plotlyOutput("plotlyLinearModel"),
+            # htmlOutput("RSquared"),
+            # htmlOutput("Slope"),
+            # htmlOutput("Intercept")
         )
     )
 )
 
-# Define server logic required to draw a histogram 
- server <- function(input, output) {
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+    
     dataInput <- reactive({
         req(input$file1)
         
@@ -78,24 +98,68 @@ ui <- fluidPage(
         return(df)
     })
     
-    # output$distPlot <- renderPlot({
-    #     # generate bins based on input$bins from ui.R
-    #     x    <- faithful[, 2]
-    #     bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    #     
-    #     # draw the histogram with the specified number of bins
-    #     hist(x,
-    #          breaks = bins,
-    #          col = 'darkgray',
-    # #          border = 'white')
-    # })
-    
-    output$distPlot <- renderPlot({
-        plot(dataInput()$x,dataInput()$y)
+    LinearModel <- eventReactive(input$lmPlot, {
+        y <- dataInput()$y
+        x <- dataInput()$x
+        lmPlot <- lm(y ~ x)
+        
     })
     
-    output$lmtPlot <- renderPlot({
-        plot(dataInput()$x,dataInput()$y)
+    output$distPlot <- renderPlot({
+        plot(dataInput()$x,dataInput()$y, xlab = "x", ylab = "y", main = "Scatter Plot of CSV Data", pch = 19)
+    })
+    
+    output$lmPlot <- renderPlot({
+        y <- dataInput()$y
+        x <- dataInput()$x
+        lmPlot <- lm(y ~ x)
+        plot(dataInput()$x,dataInput()$y, xlab = "x", ylab = "y", main = "Linear Model of CSV Data", pch = 19)
+        abline(LinearModel())
+    })
+    
+    output$RSquared <- renderUI({
+        str1 <- paste("R", tags$sup(2),":", sep = "")
+        str2 <- paste(format(round(summary(LinearModel())$r.squared, 3)))
+        HTML(paste(str1, str2))
+    })
+    
+    output$Slope <- renderUI({
+        str1 <- paste("Slope:")
+        str2 <- paste(format(round(summary(LinearModel())$coefficients[2], 3)))
+        HTML(paste(str1, str2))
+    })
+    
+    output$Intercept <- renderUI({
+        str1 <- paste("Intercept:")
+        str2 <- paste(format(round(summary(LinearModel())$coefficients[1], 3)))
+        HTML(paste(str1, str2))
+    })
+    
+    
+    output$plotlyScatterPlot <- renderPlotly({
+        plot <- plot_ly(dataInput(), x = ~x, y = ~y, type = 'scatter', mode = 'markers')%>%
+            layout(title="Scatter Plot")
+    })
+    
+    output$plotlyLinearModel <- renderPlotly({plot <- plot_ly(dataInput(), x = ~x, y = ~y, type = 'scatter', mode = 'markers')%>%
+        layout(title="Linear Model")%>% 
+    add_trace(dataInput(), x = ~x, y = fitted(LinearModel()), mode = "lines", showlegend = F)})
+    
+    output$summary <- renderPrint({
+        y <- dataInput()$y
+        x <- dataInput()$x
+        lmPlot <- lm(y ~ x)
+        #attributes(summary(lmPlot))
+        # summary(lmPlot)$slope
+        # summary(lmPlot)$coefficients
+        # summary(lmPlot)$r.squared
+        
+        # 
+        # 
+        # paste("R2 = ",signif(summary(lmPlot)$adj.r.squared, 5),
+        #       "Intercept =",signif(lmPlot$coef[[1]],5 ),
+        #       " Slope =",signif(lmPlot$coef[[2]], 5))
+        
     })
     
     output$contents <- renderTable({
@@ -114,5 +178,7 @@ ui <- fluidPage(
         
     })
     
+}
+
 # Run the application 
- shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server)
