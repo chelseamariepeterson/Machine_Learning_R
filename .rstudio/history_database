@@ -37,3 +37,23 @@
 1626798164711:runApp('Example1/app1.R')
 1626798314197:runApp('Example1/app1.R')
 1626799981812:library(shiny); runApp('Example1/app1.R')
+1627399723777:library(caret)
+1627399789421:# attach the iris dataset to the environment
+1627399789422:data(iris)
+1627399789431:# rename the dataset
+1627399789431:dataset <- iris
+1627399862744:# create a list of 80% of the rows in the original dataset we can use for training
+1627399862745:validation_index <- createDataPartition(dataset$Species, p=0.80, list=FALSE)
+1627399862759:# select 20% of the data for validation
+1627399862759:validation <- dataset[-validation_index,]
+1627399862761:# use the remaining 80% of data to training and testing the models
+1627399862761:dataset <- dataset[validation_index,]
+1627400022118:# dimensions of dataset
+1627400022119:dim(dataset)
+1627400306940:source('~/Machine_Learning_R/machine_learning_R.R')
+1627400316735:source('~/Machine_Learning_R/machine_learning_R.R')
+1627400323114:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
+1627400388362:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
+1627400403723:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
+1627400431753:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
+1627400451505:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
