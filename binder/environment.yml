@@ -12,6 +12,7 @@ dependencies:
   - r-tidyverse
   - r-shiny
   - r-plotly
+  - r-caret
   - pip
   - pip:
     - pandas
