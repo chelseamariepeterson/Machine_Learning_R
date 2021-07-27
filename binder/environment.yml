@@ -13,6 +13,10 @@ dependencies:
   - r-shiny
   - r-plotly
   - r-caret
+  - r-ellipse
+  - r-kernlab
+  - r-e1071
+  - r-randomForest
   - pip
   - pip:
     - pandas
