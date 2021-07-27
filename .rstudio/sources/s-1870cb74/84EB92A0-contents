@@ -1,8 +1,8 @@
 library(caret)
-install.packages("ellipse")
-install.packages("kernlab")
-install.packages("e1071")
-install.packages("randomForest")
+# install.packages("ellipse")
+# install.packages("kernlab")
+# install.packages("e1071")
+# install.packages("randomForest")
 
 # attach the iris dataset to the environment
 data(iris)
@@ -53,7 +53,7 @@ for(i in 1:4) {
 plot(y)
 #Bar Plot of Iris Flower Species
 
-install.packages("ellipse")
+# install.packages("ellipse")
 
 ##Multivariate Plots (interactions between variables)
 # scatterplot matrix
@@ -101,4 +101,16 @@ fit.rf <- train(Species~., data=dataset, method="rf", metric=metric, trControl=c
 # summarize accuracy of models
 results <- resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
 summary(results)
+
+# compare accuracy of models
+dotplot(results)
+
+# summarize Best Model
+print(fit.lda)
+
+##Make Predictions
+# estimate skill of LDA on the validation dataset
+predictions <- predict(fit.lda, validation)
+confusionMatrix(predictions, validation$Species)
+
 
