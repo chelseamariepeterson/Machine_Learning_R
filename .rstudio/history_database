@@ -121,3 +121,98 @@
 1627402793036:install.packages("ellipse")
 1627402879086:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
 1627402972377:source('~/Machine_Learning_R/machine_learning_R.R', echo=TRUE)
+1627567596787:##Make Predictions
+1627567596809:# estimate skill of LDA on the validation dataset
+1627567596810:predictions <- predict(fit.lda, validation)
+1627567605529:# attach the iris dataset to the environment
+1627567605530:data(iris)
+1627567613412:library(caret)
+1627567617007:# install.packages("ellipse")
+1627567617012:# install.packages("kernlab")
+1627567617058:# install.packages("e1071")
+1627567617066:# install.packages("randomForest")
+1627567617074:# attach the iris dataset to the environment
+1627567617120:data(iris)
+1627567617167:# rename the dataset
+1627567617170:dataset <- iris
+1627567617195:# create a list of 80% of the rows in the original dataset we can use for training
+1627567617217:validation_index <- createDataPartition(dataset$Species, p=0.80, list=FALSE)
+1627567617233:# select 20% of the data for validation
+1627567617252:validation <- dataset[-validation_index,]
+1627567617255:# use the remaining 80% of data to training and testing the models
+1627567617263:dataset <- dataset[validation_index,]
+1627567617318:# dimensions of dataset
+1627567617321:dim(dataset)
+1627567617324:# list types for each attribute
+1627567617325:sapply(dataset, class)
+1627567617376:# take a peek at the first 5 rows of the data
+1627567617379:head(dataset)
+1627567617387:# list the levels for the class
+1627567617388:levels(dataset$Species)
+1627567617391:# summarize the class distribution
+1627567617401:percentage <- prop.table(table(dataset$Species)) * 100
+1627567617404:cbind(freq=table(dataset$Species), percentage=percentage)
+1627567617408:# summarize attribute distributions
+1627567617409:summary(dataset)
+1627567617429:##Univariate Plots (plots of each variable)
+1627567617432:# split input and output
+1627567617444:x <- dataset[,1:4]
+1627567617447:y <- dataset[,5]
+1627567617452:##Boxplots
+1627567617453:# boxplot for each attribute on one image
+1627567617454:par(mfrow=c(1,4))
+1627567617474:for(i in 1:4) {
+1627567617483:boxplot(x[,i], main=names(iris)[i])
+1627567617491:}
+1627567617564:##BarPlots
+1627567617565:# barplot for class breakdown
+1627567617567:plot(y)
+1627567617595:#Bar Plot of Iris Flower Species
+1627567617598:# install.packages("ellipse")
+1627567617601:##Multivariate Plots (interactions between variables)
+1627567617602:# scatterplot matrix
+1627567617603:featurePlot(x=x, y=y, plot="ellipse")
+1627567617922:# box and whisker plots for each attribute
+1627567617927:featurePlot(x=x, y=y, plot="box")
+1627567618128:# density plots for each attribute by class value
+1627567618136:scales <- list(x=list(relation="free"), y=list(relation="free"))
+1627567618151:featurePlot(x=x, y=y, plot="density", scales=scales)
+1627567618493:##5. Evaluate Some Algorithms
+1627567618518:###We will 10-fold crossvalidation to estimate accuracy.
+1627567618526:# Run algorithms using 10-fold cross validation
+1627567618530:control <- trainControl(method="cv", number=10)
+1627567618536:metric <- "Accuracy"
+1627567618545:##Let’s evaluate 5 different algorithms:
+1627567618561:###Linear Discriminant Analysis (LDA)
+1627567618564:###Classification and Regression Trees (CART).
+1627567618583:###k-Nearest Neighbors (kNN).
+1627567618589:###Support Vector Machines (SVM) with a linear kernel.
+1627567618602:###Random Forest (RF)
+1627567618627:# a) linear algorithms
+1627567618647:set.seed(7)
+1627567618653:fit.lda <- train(Species~., data=dataset, method="lda", metric=metric, trControl=control)
+1627567619822:# b) nonlinear algorithms
+1627567619871:# CART
+1627567619918:set.seed(7)
+1627567619966:fit.cart <- train(Species~., data=dataset, method="rpart", metric=metric, trControl=control)
+1627567620891:# kNN
+1627567620892:set.seed(7)
+1627567620893:fit.knn <- train(Species~., data=dataset, method="knn", metric=metric, trControl=control)
+1627567621921:# c) advanced algorithms
+1627567621922:# SVM
+1627567621924:set.seed(7)
+1627567621925:fit.svm <- train(Species~., data=dataset, method="svmRadial", metric=metric, trControl=control)
+1627567625474:# Random Forest
+1627567625475:set.seed(7)
+1627567625476:fit.rf <- train(Species~., data=dataset, method="rf", metric=metric, trControl=control)
+1627567627581:# summarize accuracy of models
+1627567627582:results <- resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+1627567627614:summary(results)
+1627567627626:# compare accuracy of models
+1627567627627:dotplot(results)
+1627567627758:# summarize Best Model
+1627567627759:print(fit.lda)
+1627567627767:##Make Predictions
+1627567627768:# estimate skill of LDA on the validation dataset
+1627567627769:predictions <- predict(fit.lda, validation)
+1627567627778:confusionMatrix(predictions, validation$Species)
